@@ -1,7 +1,16 @@
+from tkinter import messagebox
 from database import *
 
+# Funçao - Fazer upload de um currículo em PDF
+def fazer_upload_curriculo():
+    file_path = filedialog.askopenfilename(filetypes=[("PDF files", "*.pdf")])
+    if file_path:
+        with open(file_path, 'rb') as file:
+            return file.read()
+    return None
+
 # Funçao - Criar o perfil do candidato
-def criar_perfil_candidato():
+def criar_perfil_desenvolvedor():
     nome = nome_entry.get()
     email = email_entry.get()
     experiencia = experiencia_text.get("1.0", "end")
@@ -17,10 +26,10 @@ def criar_perfil_candidato():
 def criar_perfil_recrutador():
     nome = nome_entry.get()
     empresa = empresa_entry.get()
-    contato = contato_entry.get()
+    email = email_entry.get()
     
-    if nome and empresa and contato:
-        recrutador_id = adicionar_recrutador(nome, empresa, contato)
+    if nome and empresa and email:
+        recrutador_id = adicionar_recrutador(nome, empresa, email)
         messagebox.showinfo("Sucesso", f"Perfil de Recrutador criado com sucesso (ID: {recrutador_id})")
     else:
         messagebox.showerror("Erro", "Preencha todos os campos")

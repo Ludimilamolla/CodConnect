@@ -44,17 +44,17 @@ def criar_tabelas(conn, cursor):
 conn, cursor = conectar_banco_dados()
 criar_tabelas(conn, cursor)
 
-# Funçao - Adicionar um candidato ao banco de dados
-def adicionar_candidato(nome, email, experiencia, curriculo):
-    cursor.execute('INSERT INTO Candidato (Nome, E_mail, Experiencia, Curriculo) VALUES (?, ?, ?, ?)',
+# Funçao - Adicionar um desenvolvedor ao banco de dados
+def adicionar_desenvolvedor(nome, email, experiencia, curriculo):
+    cursor.execute('INSERT INTO Desenvolvedor (Nome, E_mail, Experiencia, Curriculo) VALUES (?, ?, ?, ?)',
                    (nome, email, experiencia, curriculo))
     conn.commit()
     return cursor.lastrowid
 
 # Funçao - Adicionar um recrutador ao banco de dados
-def adicionar_recrutador(nome, empresa, contato):
-    cursor.execute('INSERT INTO Recrutador (Nome, Empresa, Contato) VALUES (?, ?, ?)',
-                   (nome, empresa, contato))
+def adicionar_recrutador(nome, empresa, email):
+    cursor.execute('INSERT INTO Recrutador (Nome, Empresa, E_mail) VALUES (?, ?, ?)',
+                   (nome, empresa, email))
     conn.commit()
     return cursor.lastrowid
 
@@ -64,6 +64,24 @@ def adicionar_vaga(titulo, descricao, empresa, salario, requisitos):
                    (titulo, descricao, empresa, salario, requisitos))
     conn.commit()
     return cursor.lastrowid
+
+# Funçao - Listar candidatos do banco de dados
+def listar_candidatos():
+    cursor.execute("SELECT ID_cand, Nome FROM Candidato")
+    candidatos = cursor.fetchall()
+    return candidatos
+
+# Funçao - Listar recrutadores do banco de dados
+def listar_recrutadores():
+    cursor.execute("SELECT ID_rec, Nome, Empresa FROM Recrutador")
+    recrutadores = cursor.fetchall()
+    return recrutadores
+
+# Funçao - Listar vagas do banco de dados
+def listar_vagas():
+    cursor.execute("SELECT ID_vaga, Titulo FROM Vagas")
+    vagas = cursor.fetchall()
+    return vagas
 
 # Fechar a conexão com o banco de dados
 conn.commit()
