@@ -40,6 +40,10 @@ def criar_tabelas(conn, cursor):
 
     conn.commit()
 
+# Conectar ao banco de dados e criar tabelas
+conn, cursor = conectar_banco_dados()
+criar_tabelas(conn, cursor)
+
 # Funçao - Adicionar um candidato ao banco de dados
 def adicionar_candidato(nome, email, experiencia, curriculo):
     cursor.execute('INSERT INTO Candidato (Nome, E_mail, Experiencia, Curriculo) VALUES (?, ?, ?, ?)',
@@ -48,9 +52,9 @@ def adicionar_candidato(nome, email, experiencia, curriculo):
     return cursor.lastrowid
 
 # Funçao - Adicionar um recrutador ao banco de dados
-def adicionar_recrutador(nome, empresa, email):
+def adicionar_recrutador(nome, empresa, contato):
     cursor.execute('INSERT INTO Recrutador (Nome, Empresa, Contato) VALUES (?, ?, ?)',
-                   (nome, empresa, email))
+                   (nome, empresa, contato))
     conn.commit()
     return cursor.lastrowid
 
@@ -60,3 +64,6 @@ def adicionar_vaga(titulo, descricao, empresa, salario, requisitos):
                    (titulo, descricao, empresa, salario, requisitos))
     conn.commit()
     return cursor.lastrowid
+
+# Fechar a conexão com o banco de dados
+conn.commit()
