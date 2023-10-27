@@ -4,7 +4,7 @@ from funcionalidade import *
 # Funçao - Abrir a interface do candidato
 def abrir_interface_desenvolvedor():
     desenvolvedor_window = tk.Toplevel(root)
-    desenvolvedor_window.title("DEVConnect - Desenvolvedor")
+    desenvolvedor_window.title("CodConnect - Desenvolvedor")
 
     # Labels e campos de entrada
     tk.Label(desenvolvedor_window, text="Nome:").pack()
@@ -41,7 +41,7 @@ def abrir_interface_desenvolvedor():
 # Funçao - Abrir a interface do recrutador
 def abrir_interface_recrutador():
     recrutador_window = tk.Toplevel(root)
-    recrutador_window.title("DEVConnect - Recrutador")
+    recrutador_window.title("CodConnect - Recrutador")
 
     # Labels e campos de entrada
     tk.Label(recrutador_window, text="Nome:").pack()
@@ -78,7 +78,7 @@ def abrir_interface_recrutador():
 # Funçao - Abrir a interface de vagas
 def abrir_interface_vagas():
     vagas_window = tk.Toplevel(root)
-    vagas_window.title("DEVConnect - Vagas")
+    vagas_window.title("CodConnect - Vagas")
 
     # Labels e campos de entrada
     tk.Label(vagas_window, text="Título da Vaga:").pack()
@@ -159,7 +159,7 @@ def exibir_lista_vagas():
 
 # Interface principal
 root = tk.Tk()
-root.title("DEVConnect")
+root.title("CodConnect")
 
 # Botões - Acessar as interfaces
 desenvolvedor_button = tk.Button(root, text="Desenvolvedor", command=abrir_interface_desenvolvedor)
