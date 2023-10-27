@@ -66,10 +66,10 @@ def adicionar_vaga(titulo, descricao, empresa, salario, requisitos):
     return cursor.lastrowid
 
 # Funçao - Listar candidatos do banco de dados
-def listar_candidatos():
-    cursor.execute("SELECT ID_cand, Nome FROM Candidato")
-    candidatos = cursor.fetchall()
-    return candidatos
+def listar_desenvolvedores():
+    cursor.execute("SELECT ID_cand, Nome FROM Desenvolvedor")
+    desenvolvedores = cursor.fetchall()
+    return desenvolvedores
 
 # Funçao - Listar recrutadores do banco de dados
 def listar_recrutadores():
