@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import filedialog
 from database import *
 
 
@@ -12,7 +13,9 @@ def fazer_upload_curriculo():
     return None
 
 # Função - Criar o perfil do desenvolvedor
+
 def criar_perfil_desenvolvedor():
+    global nome_entry, email_entry, experiencia_text
     nome = nome_entry.get()
     email = email_entry.get()
     experiencia = experiencia_text.get("1.0", "end")

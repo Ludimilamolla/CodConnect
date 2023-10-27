@@ -1,6 +1,7 @@
 import tkinter as tk
 from funcionalidade import *
 
+
 # Funçao - Abrir a interface do candidato
 def abrir_interface_desenvolvedor():
     desenvolvedor_window = tk.Toplevel(root)
