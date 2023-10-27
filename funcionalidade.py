@@ -52,3 +52,31 @@ def criar_vaga():
         messagebox.showinfo("Sucesso", f"Vaga criada com sucesso (ID: {vaga_id})")
     else:
         messagebox.showerror("Erro", "Preencha todos os campos corretamente")
+
+# Funçao - Exibir a lista de candidatos em um Listbox
+def exibir_lista_desenvolvedores():
+    desenvolvedores = listar_desenvolvedores()
+    listbox.delete(0, tk.END)  # Limpa a lista existente
+    for desenvolvedor in desenvolvedores:
+        listbox.insert(tk.END, f"{desenvolvedor[0]} - {desenvolvedores[1]}")
+
+# Funçao - Exibir a lista de recrutadores em um Listbox
+def exibir_lista_recrutadores():
+    recrutadores = listar_recrutadores()
+    listbox.delete(0, tk.END)  # Limpa a lista existente
+    for recrutador in recrutadores:
+        listbox.insert(tk.END, f"{recrutador[0]} - {recrutador[1]}")
+
+# Funçao - Exibir a lista de vagas em um Listbox
+def exibir_lista_vagas():
+    vagas = listar_vagas()
+    listbox.delete(0, tk.END)  # Limpa a lista existente
+    for vaga in vagas:
+        listbox.insert(tk.END, f"{vaga[0]} - {vaga[1]}")
+
+# Funçao - Validar email
+def validar_email(email):
+    if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+        return False
+    return True
+
