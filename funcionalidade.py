@@ -20,7 +20,6 @@ def criar_perfil_desenvolvedor():
     email = email_entry.get()
     experiencia = experiencia_text.get("1.0", "end")
     curriculo = fazer_upload_curriculo()
-
     if nome and email and experiencia and curriculo:
         desenvolvedor_id = adicionar_desenvolvedor(nome, email, experiencia, curriculo)
         messagebox.showinfo("Sucesso", f"Perfil criado com sucesso (ID: {desenvolvedor_id})")
