@@ -13,13 +13,11 @@ def fazer_upload_curriculo():
     return None
 
 # Função - Criar o perfil do desenvolvedor
-
-def criar_perfil_desenvolvedor():
-    global nome_entry, email_entry, experiencia_text
+def criar_perfil_desenvolvedor(nome_entry, email_entry, experiencia_text):
     nome = nome_entry.get()
     email = email_entry.get()
     experiencia = experiencia_text.get("1.0", "end")
-    curriculo = fazer_upload_curriculo()
+    curriculo = fazer_upload_curriculo()  
     if nome and email and experiencia and curriculo:
         desenvolvedor_id = adicionar_desenvolvedor(nome, email, experiencia, curriculo)
         messagebox.showinfo("Sucesso", f"Perfil criado com sucesso (ID: {desenvolvedor_id})")

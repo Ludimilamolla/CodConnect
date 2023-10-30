@@ -1,6 +1,7 @@
 import tkinter as tk
 from funcionalidade import *
 
+root = tk.Tk()
 
 # Funçao - Abrir a interface do candidato
 def abrir_interface_desenvolvedor():
@@ -38,6 +39,13 @@ def abrir_interface_desenvolvedor():
     # Botão - Fechar a janela do desenvolvedor
     fechar_button = tk.Button(desenvolvedor_window, text="Fechar", command=desenvolvedor_window.destroy)
     fechar_button.pack(padx=15, pady=15)
+
+def chamar_criar_perfil():
+    print("Nome Entry:", nome_entry.get())
+    print("Email Entry:", email_entry.get())
+    print("Experiência Text:", experiencia_text.get("1.0", "end"))
+        
+    criar_perfil_desenvolvedor(nome_entry, email_entry, experiencia_text)
 
 # Funçao - Abrir a interface do recrutador
 def abrir_interface_recrutador():
