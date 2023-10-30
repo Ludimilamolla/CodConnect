@@ -1,6 +1,8 @@
 import tkinter as tk
 from funcionalidade import *
 root = tk.Tk()
+root.title("CodConnect")
+
 
 # Funçao - Abrir a interface do candidato
 def abrir_interface_desenvolvedor():
@@ -175,6 +177,7 @@ recrutador_button = tk.Button(root, text="Recrutador", command=abrir_interface_r
 vagas_button = tk.Button(root, text="Vagas", command=abrir_interface_vagas)
 
 
+# Layout da interface principal
 desenvolvedor_button.pack(padx=15, pady=15)
 recrutador_button.pack(padx=15, pady=15)
 vagas_button.pack(padx=15, pady=15)

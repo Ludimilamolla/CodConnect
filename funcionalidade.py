@@ -1,8 +1,13 @@
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import filedialog
+import sqlite3
+import re
 from database import *
 
+# Inicializar a conexão com o banco de dados
+conn = sqlite3.connect('codconnect.db')
+cursor = conn.cursor()
 
 # Funçao - Fazer upload de um currículo em PDF
 def fazer_upload_curriculo():
@@ -13,16 +18,18 @@ def fazer_upload_curriculo():
     return None
 
 # Função - Criar o perfil do desenvolvedor
-def criar_perfil_desenvolvedor(nome_entry, email_entry, experiencia_text):
+def criar_perfil_desenvolvedor():
     nome = nome_entry.get()
     email = email_entry.get()
     experiencia = experiencia_text.get("1.0", "end")
     curriculo = fazer_upload_curriculo()  
     if nome and email and experiencia and curriculo:
         desenvolvedor_id = adicionar_desenvolvedor(nome, email, experiencia, curriculo)
+        conn.commit()  # Salvar as mudanças no banco de dados
         messagebox.showinfo("Sucesso", f"Perfil criado com sucesso (ID: {desenvolvedor_id})")
     else:
         messagebox.showerror("Erro", "Preencha todos os campos e faça upload do currículo em PDF")
+
 
 # Função - Criar o perfil do recrutador
 def criar_perfil_recrutador():
@@ -148,3 +155,5 @@ def exibir_detalhes_vaga(index):
         # Exibe a mensagem em uma janela de pop-up
         messagebox.showinfo("Detalhes da Vaga", mensagem)
 
+# Fechar a conexão com o banco de dados
+conn.close()
