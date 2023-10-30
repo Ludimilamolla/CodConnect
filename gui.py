@@ -1,6 +1,5 @@
 import tkinter as tk
 from funcionalidade import *
-
 root = tk.Tk()
 
 # Funçao - Abrir a interface do candidato
